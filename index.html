@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>mini átomos!</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<!-- Estilos en archivo aparte -->
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- ===== NAVBAR: logo, enlaces y botón del Club ===== -->
+<nav>
+ <div class="logo"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="2" fill="#fff"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg></i>mini átomos<b>!</b></div>
+ <div class="links"><a data-go="top">Buscar</a><a data-go="tabla">Todos los elementos</a><a data-open="learn">Aprende</a><a data-open="lab">Laboratorio</a></div>
+ <button class="pill" data-open="club">CLUB DE PEQUEÑOS CIENTÍFICOS</button>
+</nav>
+ 
+<!-- ===== HERO: título, buscador y átomo interactivo ===== -->
+<header class="hero" id="top">
+ <span class="dot" style="left:16px;top:50px;width:40px;height:40px;background:var(--yel)"></span>
+ <span class="dot" style="right:12%;bottom:12%;width:52px;height:52px;background:var(--lime)"></span>
+ <span class="dot" style="right:28%;top:60px;width:18px;height:18px;background:var(--coral)"></span>
+ <div class="hero-in">
+  <div>
+   <span class="badge mono">TU AVENTURA ATÓMICA EMPIEZA AQUÍ</span>
+   <h1>¡Descubre el mundo <span>de los átomos!</span></h1>
+   <p class="sub">Escribe el nombre de un elemento y mira todo lo que esconde en su interior. ¡Hay 118 por descubrir!</p>
+   <div class="sbox">
+    <div class="sbar"><input id="q" placeholder="¿Qué elemento quieres conocer?" autocomplete="off" aria-label="Buscar elemento"><button class="btn" id="go">¡Explorar! →</button></div>
+    <div class="sug" id="sug" hidden></div>
+   </div>
+   <div class="quick"><small>EMPIEZA POR:</small><button class="chip" data-z="8">Oxígeno</button><button class="chip" data-z="26">Hierro</button><button class="chip" data-z="79">Oro</button><button class="chip" id="rnd">Elemento Aleatorio 🎲</button></div>
+  </div>
+  <div class="heroart">
+   <svg viewBox="0 0 400 400" id="hsvg">
+    <defs><radialGradient id="gl"><stop offset="0" stop-color="#C6F649" stop-opacity=".6"/><stop offset="1" stop-color="#C6F649" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="200" cy="200" r="120" fill="url(#gl)"/>
+    <g fill="none" stroke="#1E2749" stroke-opacity=".4"><ellipse cx="200" cy="200" rx="160" ry="55"/><ellipse cx="200" cy="200" rx="160" ry="55" transform="rotate(60 200 200)"/><ellipse cx="200" cy="200" rx="160" ry="55" transform="rotate(120 200 200)"/></g>
+    <g fill="#FF6B6B" stroke="#1E2749" stroke-width="2">
+     <g><circle r="8"><animateMotion dur="6s" repeatCount="indefinite" path="M40,200 a160,55 0 1,0 320,0 a160,55 0 1,0 -320,0"/></circle></g>
+     <g transform="rotate(60 200 200)"><circle r="8"><animateMotion dur="8s" repeatCount="indefinite" path="M40,200 a160,55 0 1,0 320,0 a160,55 0 1,0 -320,0"/></circle></g>
+     <g transform="rotate(120 200 200)"><circle r="8"><animateMotion dur="10s" repeatCount="indefinite" path="M40,200 a160,55 0 1,0 320,0 a160,55 0 1,0 -320,0"/></circle></g>
+    </g>
+    <g id="nuc" style="cursor:pointer"><circle cx="205" cy="205" r="44" fill="#1E2749"/><circle cx="200" cy="200" r="44" fill="#6C5CE7" stroke="#1E2749" stroke-width="3"/><circle cx="200" cy="186" r="7" fill="#fff"/><circle cx="200" cy="186" r="3" fill="#1E2749"/><path d="M186 208q14 12 28 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+   </svg>
+   <div class="bubble" id="bub">¡Hola! Soy Oxígeno</div>
+  </div>
+ </div>
+</header>
+ 
+<!-- ===== PARADA 01: las tarjetas se llenan desde JS con la función render() ===== -->
+<section class="sec" id="parada1">
+ <div class="shead"><div><span class="tag">PARADA 01 · CONOCE A TU ELEMENTO</span><h2 id="hola"></h2></div><button class="btn2" id="otro">Buscar otro elemento ↺</button></div>
+ <div class="grid">
+  <div class="card id" id="idc"></div>
+  <div class="card bohr" id="bohr"></div>
+  <div class="card" id="parts"></div>
+ </div>
+ <div class="card cfg" id="cfg"></div>
+ <div class="card real" id="real"></div>
+</section>
+ 
+<!-- ===== PARADA 02: la tabla se genera desde JS con buildTable() ===== -->
+<div class="tsec" id="tabla"><section class="sec">
+ <div class="shead"><div><span class="tag">PARADA 02 · ELIGE TU PRÓXIMA AVENTURA</span><h2>La pandilla de los 118</h2></div><span class="mono" style="font-size:11px">Toca una tarjeta para conocer a otro elemento.</span></div>
+ <div class="pt"><div class="ptg" id="ptg"></div></div>
+ <div class="leg" id="leg"></div>
+</section></div>
+ 
+<!-- ===== BANNER MOTIVACIONAL Y FOOTER ===== -->
+<div class="banner">
+ <span class="dot" style="left:8%;top:14%;width:62px;height:62px;background:var(--yel)"></span>
+ <span class="dot" style="right:9%;bottom:20%;width:44px;height:44px;background:var(--coral)"></span>
+ <span class="dot" style="left:3%;bottom:6%;width:80px;height:80px;border:2px dashed rgba(255,255,255,.5)"></span>
+ <span class="badge mono">PREGUNTA · DESCUBRE · DIVIÉRTETE</span>
+ <h2>Todo gran científico empezó con una pregunta.</h2>
+ <p>Cada círculo que ves es una capa y cada punto que gira es un electrón. Explora, compara elementos y descubre cómo las piezas más pequeñas construyen todo lo que te rodea.</p>
+</div>
+<footer><span>mini átomos · laboratorio curioso</span><span>118 elementos por descubrir</span><span>Concurso de divulgación científica · Museo El Rehilete</span></footer>
+ 
+<!-- Contenedor único de ventanas emergentes; el contenido cambia según el botón -->
+<div class="modal" id="modal"><div class="mbox"><button class="x" aria-label="Cerrar" id="mx">✕</button><div id="mc"></div></div></div>
+ 
+<!-- Lógica de la app en archivo aparte (los datos están en data.js) -->
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
+ 

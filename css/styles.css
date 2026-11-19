@@ -1,0 +1,122 @@
+/* ===== Variables de color y estilo base: aquí se cambia la paleta de toda la página ===== */
+:root{--cream:#FDF8EE;--ink:#1E2749;--pur:#6C5CE7;--lime:#C6F649;--coral:#FF6B6B;--yel:#FFE66D;--sh:4px 4px 0 var(--ink);--b:2px solid var(--ink);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Fredoka,system-ui,sans-serif}
+.mono{font-family:"Space Mono",ui-monospace,monospace}
+button{font-family:inherit;color:var(--ink);cursor:pointer}
+/* ===== Barra de navegación (queda fija arriba al hacer scroll) ===== */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 28px;background:var(--cream);border-bottom:var(--b)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px}.logo i{display:grid;place-items:center;width:38px;height:38px;background:var(--pur);border:var(--b);border-radius:12px;box-shadow:3px 3px 0 var(--ink)}
+.logo b{color:var(--coral)}
+.links{display:flex;gap:26px;font-size:14px;font-weight:500}.links a{cursor:pointer}.links a:hover{color:var(--pur)}
+/* Botón tipo píldora: al presionarlo se "hunde" moviendo la sombra */
+.pill{background:var(--lime);border:var(--b);border-radius:99px;box-shadow:var(--sh);padding:8px 16px;font:700 11px "Space Mono",monospace;letter-spacing:.04em}
+.pill:active,.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+/* ===== Hero: fondo degradado, título, buscador y átomo animado ===== */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#dff4ff,#f1eeff 55%,#e4defd);padding:56px 28px 64px;border-radius:0 0 40px 0}
+.hero-in{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.15fr 1fr;gap:20px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:var(--b);border-radius:99px;box-shadow:3px 3px 0 var(--ink);padding:6px 14px;font:700 11px "Space Mono",monospace}
+.badge:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--coral)}
+h1{font-size:clamp(40px,6.2vw,76px);line-height:1;margin:22px 0 16px;font-weight:700}h1 span{color:var(--pur)}
+.sub{max-width:460px;font-size:17px;color:#4a5273;margin:0 0 26px}
+.sbox{position:relative;max-width:520px}
+.sbar{display:flex;gap:8px;background:#fff;border:var(--b);border-radius:20px;box-shadow:var(--sh);padding:8px}
+.sbar input{flex:1;min-width:0;border:0;outline:0;font:500 16px Fredoka;padding:8px 10px;background:transparent;color:var(--ink)}
+.btn{background:var(--coral);border:var(--b);border-radius:14px;box-shadow:3px 3px 0 var(--ink);padding:10px 18px;font-weight:700;font-size:15px;color:#fff}
+/* Lista de sugerencias del autocompletado */
+.sug{position:absolute;left:0;right:0;top:calc(100% + 10px);background:#fff;border:var(--b);border-radius:16px;box-shadow:var(--sh);z-index:10;overflow:hidden}
+.sug button{display:flex;gap:10px;align-items:center;width:100%;border:0;background:none;padding:10px 14px;text-align:left;font:500 15px Fredoka}.sug button:hover{background:var(--yel)}
+.sug em{font:700 12px "Space Mono",monospace;background:var(--lime);border:1.5px solid var(--ink);border-radius:8px;padding:2px 6px;font-style:normal}
+.quick{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px}.quick small{font:400 10px "Space Mono",monospace;letter-spacing:.1em}
+.chip{background:#fff;border:var(--b);border-radius:99px;box-shadow:2px 2px 0 var(--ink);padding:5px 14px;font-weight:600;font-size:13px}
+.chip:hover{background:var(--yel)}
+/* Ilustración del átomo y globo de diálogo */
+.heroart{position:relative;aspect-ratio:1;max-width:440px;width:100%;justify-self:center}
+.heroart svg{width:100%;height:100%;overflow:visible}
+.bubble{position:absolute;left:12%;bottom:14%;background:#fff;border:var(--b);border-radius:12px;box-shadow:3px 3px 0 var(--ink);padding:6px 12px;font-weight:700;font-size:13px;transform:rotate(-4deg)}
+.dot{position:absolute;border-radius:50%}
+/* ===== Parada 01: tarjetas de información del elemento ===== */
+section.sec{max-width:1100px;margin:auto;padding:64px 24px 24px}
+.tag{display:inline-block;background:var(--yel);border-radius:8px;padding:4px 10px;font:700 10px "Space Mono",monospace;letter-spacing:.06em}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+h2{font-size:clamp(30px,4.2vw,46px);margin:10px 0 0;line-height:1.05}
+.btn2{background:#fff;border:var(--b);border-radius:99px;box-shadow:var(--sh);padding:9px 18px;font-weight:600;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1.5fr 1.2fr;gap:20px}
+.card{background:#fff;border:var(--b);border-radius:24px;box-shadow:var(--sh);padding:22px;position:relative}
+.lab{font:400 10px "Space Mono",monospace;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.card h3{margin:6px 0 14px;font-size:20px}
+.id{color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:360px;box-shadow:8px 8px 0 var(--yel)}
+.id .top{display:flex;justify-content:space-between;align-items:center;font:700 12px "Space Mono",monospace}
+.id .top span{background:#fff;color:var(--ink);border:var(--b);border-radius:99px;padding:3px 10px;font-size:11px}
+.sym{text-align:center;font-size:130px;font-weight:700;line-height:1;text-shadow:6px 6px 0 rgba(30,39,73,.55)}
+.id .bot{display:flex;justify-content:space-between;align-items:flex-end}.id .nm{font-size:28px;font-weight:700}
+.id .pg{border-top:1px solid rgba(255,255,255,.35);padding-top:8px;margin-top:10px;font:400 10px "Space Mono",monospace;display:flex;gap:18px}
+/* Tarjeta del modelo de Bohr: las capas giran con una animación CSS ("spin") */
+.bohr{background:linear-gradient(160deg,#f3fbff,#dff4ff)}
+.bohr .row{display:flex;justify-content:space-between;align-items:flex-start}
+.tog{background:#fff;border:var(--b);border-radius:99px;padding:5px 12px;font:700 11px "Space Mono",monospace;display:flex;gap:6px;align-items:center}
+.tog:before{content:"";width:8px;height:8px;border-radius:50%;background:#2ecc71}.tog.off:before{background:var(--coral)}
+.bohr svg{width:100%;max-height:300px;display:block;margin:auto}
+.orb{transform-origin:120px 120px;animation:spin linear infinite}.paused .orb{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.pills span{background:#fff;border:1.5px solid var(--ink);border-radius:99px;padding:2px 10px;font:700 11px "Space Mono",monospace}
+/* Tarjeta de partículas subatómicas */
+.part{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #e3e1ec}
+.part i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:var(--b);font:700 12px "Space Mono",monospace;font-style:normal;box-shadow:2px 2px 0 var(--ink)}
+.part div{flex:1;font-weight:600}.part small{display:block;font-weight:400;font-size:11px;opacity:.6}.part b{font-size:30px}
+.formula{margin-top:14px;border:2px dashed var(--ink);background:#FFF6D1;border-radius:12px;padding:10px;text-align:center;font:400 11px "Space Mono",monospace}
+/* Tarjeta de configuración electrónica y barras por nivel */
+.cfg{margin-top:20px;display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:16px;align-items:center}
+.cfg .head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.cbox{border:var(--b);border-left-width:6px;border-radius:12px;padding:12px 16px}.cbox b{display:block;font:700 18px "Space Mono",monospace;margin-top:6px;word-break:break-word}
+.bar{display:flex;align-items:center;gap:8px;margin:5px 0;font:700 11px "Space Mono",monospace}
+.bar i{width:20px;height:20px;border-radius:50%;background:var(--pur);color:#fff;display:grid;place-items:center;font-style:normal;font-size:10px}
+.bar div{flex:1;height:8px;background:#e8eaf0;border-radius:9px;overflow:hidden}.bar div u{display:block;height:100%;background:linear-gradient(90deg,var(--pur),#74c0fc);border-radius:9px}
+.real{margin-top:20px;background:#E9FBD0}
+.real .items{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.item{background:#fff;border:var(--b);border-radius:16px;padding:14px;box-shadow:3px 3px 0 var(--ink)}.item div{font-size:34px}.item b{display:block}.item span{font-size:13px;opacity:.75}
+.curio{margin-top:14px;font-size:15px}
+/* ===== Parada 02: tabla periódica en una cuadrícula de 18 columnas ===== */
+.tsec{background:#FFF1C9;border-radius:40px 0 0 0;margin-top:50px;padding:1px 0 40px}
+.pt{overflow-x:auto;padding:6px 4px 14px}
+.ptg{display:grid;grid-template-columns:repeat(18,minmax(40px,1fr));gap:5px;min-width:780px}
+.el{aspect-ratio:1;border:2px solid #8b90a8;border-radius:10px;box-shadow:2px 2px 0 #8b90a8;background:#eee;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;font:500 15px "Space Mono",monospace;position:relative;transition:.15s}
+.el small{position:absolute;top:2px;left:4px;font-size:8px;opacity:.7}.el:hover{transform:translateY(-3px)}
+.el.act{border:3px solid var(--coral);box-shadow:0 0 0 2px #fff,3px 3px 0 var(--coral);z-index:2}
+.el.vis:after{content:"★";position:absolute;right:3px;top:0;font-size:9px;color:var(--pur)}
+.dim .el:not(.hl){opacity:.18}
+.leg{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;margin-top:16px}
+.leg button{display:flex;align-items:center;gap:6px;border:0;background:none;font:400 11px "Space Mono",monospace;padding:4px 6px;border-radius:8px}.leg button:hover,.leg button.on{background:#fff}
+.leg i{width:14px;height:14px;border-radius:4px;border:1.5px solid #8b90a8}
+/* Colores de cada categoría (tabla y leyenda) */
+.c-nm{background:#DFF6F2}.c-ng{background:#DCE8FF}.c-ma{background:#D9F2B3}.c-ae{background:#EEF0A8}.c-md{background:#BFEADF}.c-ha{background:#BDEBF7}.c-mt{background:#E6E0FA}.c-mp{background:#E3E7E8}.c-la{background:#F9DDE6}.c-ac{background:#F8DCC8}
+/* Colores fuertes que usa la tarjeta de identidad según la familia */
+.fam-nm{background:#2BB8A5}.fam-ng{background:#4C7DE0}.fam-ma{background:#6AB04C}.fam-ae{background:#B8A81C}.fam-md{background:#1D9E85}.fam-ha{background:#1C9ABF}.fam-mt{background:#6C5CE7}.fam-mp{background:#6B7A80}.fam-la{background:#D6457A}.fam-ac{background:#D0702E}
+/* ===== Banner morado y footer ===== */
+.banner{position:relative;overflow:hidden;background:var(--pur);color:#fff;text-align:center;padding:90px 24px}
+.banner h2{font-size:clamp(34px,6vw,70px);max-width:780px;margin:22px auto}.banner p{max-width:560px;margin:auto;font-size:16px}
+.banner .badge{background:var(--lime);color:var(--ink)}.banner .badge:before{display:none}
+footer{background:var(--ink);color:#fff;padding:22px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font:400 10px "Space Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+/* ===== Ventanas emergentes: guía, club, constructor y quiz ===== */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(30,39,73,.6);display:none;align-items:center;justify-content:center;padding:16px}.modal.on{display:flex}
+.mbox{background:var(--cream);border:var(--b);border-radius:28px;box-shadow:8px 8px 0 var(--ink);width:min(760px,100%);max-height:90vh;overflow:auto;padding:26px;position:relative}
+.x{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:50%;border:var(--b);background:var(--coral);color:#fff;font-weight:700;font-size:16px}
+.tabs{display:flex;gap:8px;margin:14px 0}.tabs button{border:var(--b);background:#fff;border-radius:99px;padding:8px 16px;font-weight:600}.tabs button.on{background:var(--lime);box-shadow:2px 2px 0 var(--ink)}
+.bld{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ctl{display:flex;align-items:center;gap:10px;margin:8px 0}.ctl i{width:34px;height:34px;border-radius:50%;border:var(--b);display:grid;place-items:center;font:700 11px "Space Mono",monospace;font-style:normal}
+.ctl span{flex:1;font-weight:600}.ctl b{width:34px;text-align:center;font-size:22px}
+.ctl button{width:34px;height:34px;border-radius:10px;border:var(--b);background:#fff;font-weight:700;font-size:18px;box-shadow:2px 2px 0 var(--ink)}
+.res{background:#fff;border:var(--b);border-radius:18px;padding:14px;box-shadow:3px 3px 0 var(--ink);text-align:center}.res .big{font-size:60px;font-weight:700;line-height:1;color:var(--pur)}
+.tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px}.tags span{border:1.5px solid var(--ink);border-radius:99px;padding:3px 10px;font:700 11px "Space Mono",monospace;background:var(--yel)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.opts button{border:var(--b);background:#fff;border-radius:16px;box-shadow:3px 3px 0 var(--ink);padding:14px;font-weight:600;font-size:16px}
+.opts button.ok{background:var(--lime)}.opts button.bad{background:var(--coral);color:#fff}
+.q{font-size:20px;font-weight:600;margin:10px 0}
+.med{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:14px 0}
+.med div{border:var(--b);border-radius:16px;padding:12px;text-align:center;background:#fff;box-shadow:3px 3px 0 var(--ink)}.med div.lock{opacity:.4;filter:grayscale(1)}.med span{font-size:34px;display:block}.med small{font-size:11px;display:block}
+.prog{height:14px;border:var(--b);border-radius:9px;background:#fff;overflow:hidden}.prog u{display:block;height:100%;background:var(--lime)}
+/* Confeti del quiz */
+.cf{position:fixed;top:-20px;width:10px;height:14px;z-index:99;animation:fall 2.4s linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+/* ===== Adaptación a tablet y celular ===== */
+@media(max-width:860px){.hero-in,.grid,.cfg,.bld{grid-template-columns:1fr}.links{display:none}.real .items{grid-template-columns:1fr}nav{padding:10px 16px}.heroart{max-width:320px}}
+@media(prefers-reduced-motion:reduce){.orb{animation:none}}
